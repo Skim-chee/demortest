@@ -4,7 +4,7 @@ Rails.application.routes.draw do
 
   get '/emaillist' => 'email_list#email_list'
 
-  get 'account_confirmation' => 'emails#account_confirmation'
+  get 'account_confirmation', to: 'emails#account_confirmation'
   
   resources :emails
 

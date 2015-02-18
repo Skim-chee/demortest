@@ -14,20 +14,21 @@ class EmailsController < ApplicationController
 		end
 	end
 
-	private
-
-	def email_params
-		params.require(:email).permit(:email)
-	end
-
 	def account_confirmation	
 		@email = Email.find_by_email_confirm_token(params[:token])
 		if(@email)
 			@email.update_column(:activated, true)
 			@email.update_column(:email_confirm_token, nil)
-			redirect_to login_url, :notice => "Account confirmed"
+			redirect_to root_url, :notice => "Account confirmed"
+			flash[:info] = "Account confirmed."
 		else
-			redirect_to login_url, :notice => "Account could not be confirmed"
+			redirect_to root_url, :notice => "Account could not be confirmed"
 		end
+	end
+
+	private
+
+	def email_params
+		params.require(:email).permit(:email)
 	end
 end
