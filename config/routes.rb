@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
 
   root 'emails#new'
+
+  get '/emaillist' => 'email_list#email_list'
+
+  get 'account_confirmation' => 'emails#account_confirmation'
   
   resources :emails
 

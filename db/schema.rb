@@ -17,8 +17,9 @@ ActiveRecord::Schema.define(version: 20150207201850) do
     t.string   "email"
     t.boolean  "activated"
     t.integer  "position"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
+    t.string   "email_confirm_token"
   end
 
 end
