@@ -11,15 +11,26 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150207201850) do
+ActiveRecord::Schema.define(version: 20150222223516) do
 
   create_table "emails", force: :cascade do |t|
-    t.string   "email"
-    t.boolean  "activated"
-    t.integer  "position"
-    t.datetime "created_at",          null: false
-    t.datetime "updated_at",          null: false
-    t.string   "email_confirm_token"
+    t.string  "email",               limit: 255
+    t.boolean "activated",           limit: 1
+    t.integer "position",            limit: 4
+    t.string  "email_confirm_token", limit: 255
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string   "email",             limit: 255
+    t.string   "password_digest",   limit: 255
+    t.integer  "age",               limit: 4
+    t.string   "city",              limit: 255
+    t.string   "state",             limit: 255
+    t.string   "gender",            limit: 255
+    t.string   "remember_digest",   limit: 255
+    t.string   "activation_digest", limit: 255
+    t.boolean  "activated",         limit: 1
+    t.datetime "activated_at"
   end
 
 end

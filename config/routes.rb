@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  resources :users
+
   root 'emails#new'
 
   get '/emaillist' => 'email_list#email_list'
